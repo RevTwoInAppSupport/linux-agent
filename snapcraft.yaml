@@ -1,0 +1,11 @@
+name: rev2agent
+version: "0.1"
+summary: Revtwo agent snap
+description: Revtwo agent for remote support of linux devices
+
+parts:
+  rev2agent:
+    plugin: dump
+    source: .
+
+
