@@ -1,0 +1,63 @@
+#!/bin/sh
+
+echo $PWD
+if [ ! -f $PWD/appconfig.data ]; then
+	if [ ! -f $SNAP_COMMON/appconfig.data ]; then
+    	echo "ERROR: appconfig.data file missing in $SNAP_COMMON."
+    	echo "Go to http://revtwo.com/docs/ for instructions to download appconfig.data from your account."
+   		return 1
+   	else 
+   		echo "INFO: appconfig.data file found in $SNAP_COMMON" 
+   	fi
+else
+	echo "INFO: appconfig.data file found in $PWD"
+fi
+
+if [ ! -f $PWD/userconfig.json ]; then
+	if [ ! -f $SNAP_COMMON/userconfig.json ]; then
+    	echo "ERROR: userconfig.json file missing in $SNAP_COMMON."
+    	echo "Go to http://revtwo.com/docs/ for instructions to create and edit userconfig.json file."
+   		return 1
+   	else 
+   		echo "INFO: userconfig.json file found in $SNAP_COMMON" 
+   	fi
+else
+	echo "INFO: userconfig.json file found in $PWD"
+fi
+
+if [ ! -f $SNAP_COMMON/Go_Daddy_Class_2_CA.pem ]; then
+    echo "ERROR: Certificate not found in $SNAP_COMMON. Try reinstalling the snap"
+	return 1
+else
+	echo "INFO: Certificate file found in $SNAP_COMMON"
+fi
+
+#remove this in official version as this is not place to keep this file
+if [ ! -f $PWD/sample.db ]; then
+	echo "WARNING: sample.db missing. Copying it to $PWD. Please delete it afterwards."
+	cp $SNAP/sample.db $PWD/sample.db
+	if [ ! -f $PWD/sample.db ]; then
+		echo "WARNING: sample.db not copied to $PWD you will not be able to test db connectivity!"
+	fi
+else
+	echo "INFO: sample.db found in $PWD" 
+fi
+
+echo "INFO: Validating userconfig"
+
+python3 $SNAP/validateConfig.py                                                                                                                    
+ret=$?
+if [ $ret -ne 0 ]; then
+    echo "FATAL ERROR: Validating user config failed. Launching rev2agent aborted"
+else
+	echo "INFO: Starting rev2agent"
+	$SNAP/R2Agent $SNAP_COMMON
+
+# 	$SNAP/run-hello-sample & pid_sample=$!
+# 	$SNAP/R2Agent & pid_agent=$!
+# 	echo $pid_sample
+# 	echo $pid_agent
+# 	wait $pid_sample
+# 	kill $pid_agent
+
+fi
