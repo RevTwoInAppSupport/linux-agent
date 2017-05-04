@@ -7,5 +7,7 @@ parts:
   rev2agent:
     plugin: dump
     source: .
+    organize: 
+      configure: snap/hooks/configure
 
 
