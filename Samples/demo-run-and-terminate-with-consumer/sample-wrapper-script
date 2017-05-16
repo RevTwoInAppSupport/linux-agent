@@ -2,8 +2,8 @@
 
 $SNAP/run-hello-sample & pid_sample=$!
 $SNAP/R2Agent & pid_agent=$!
-#echo $pid_sample
-#echo $pid_agent
+echo "Process id of sample: $pid_sample"
+echo "Process id of agent: $pid_agent"
 wait $pid_sample
 kill $pid_agent
 
