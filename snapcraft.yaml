@@ -3,13 +3,16 @@ version: "0.1"
 summary: Revtwo agent snap
 description: Revtwo agent for remote support of linux devices
 
-apps:
-  rev2agent:
-    plugs: [network-bind, home]
-    command: run-rev2agent 
+#apps:
+#  rev2agent:
+#    plugs: [network-bind, home]
+#    command: run-rev2agent 
 
 parts:
   rev2agent:
     plugin: dump
     source: .
+    prime:
+      - ./*
+      - -Samples
 
