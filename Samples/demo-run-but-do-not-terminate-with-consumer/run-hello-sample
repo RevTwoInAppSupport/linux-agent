@@ -1,0 +1,11 @@
+#!/bin/sh
+
+#runs infinite loop printing out hello each time
+#execute ps -ef | grep <username e.g. jasminko>
+#to see pid of this program to terminate app
+
+while true
+do
+   echo "hello"
+   sleep 2
+done

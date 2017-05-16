@@ -10,10 +10,9 @@ confinement: devmode
 grade: devel
 
 apps:
-# add your app here
-  rev2agent:
+  rev2agent-part-test:
     plugs: [network-bind, home]
-    command: run-rev2agent 
+    command: sample-wrapper-script
     
 parts:
 #replace rev2agent-part-test with your part

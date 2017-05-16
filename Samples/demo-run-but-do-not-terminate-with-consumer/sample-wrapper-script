@@ -1,0 +1,7 @@
+#!/bin/sh
+
+$SNAP/run-hello-sample & pid_sample=$!
+$SNAP/R2Agent & pid_agent=$!
+echo $pid_sample
+echo $pid_agent
+
