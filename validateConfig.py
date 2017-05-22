@@ -33,9 +33,9 @@ configpath = ""
 if os.path.isfile(configname):
     configpath = configname
     print ("INFO: Userconfig found in local folder")
-elif os.path.isfile(str(os.environ["SNAP_DATA"]) + "/" + configname):
-    print ("INFO: Userconfig found in SNAP_DATA folder")
-    configpath = str(os.environ["SNAP_DATA"]) + "/" + configname
+elif os.path.isfile(str(os.environ["SNAP_COMMON"]) + "/" + configname):
+    print ("INFO: Userconfig found in SNAP_COMMON folder")
+    configpath = str(os.environ["SNAP_COMMON"]) + "/" + configname
 else:
     print ("ERROR: Userconfig not found aborting")
     sys.exit(100)
