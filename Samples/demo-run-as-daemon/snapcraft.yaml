@@ -20,7 +20,11 @@ apps:
     
 parts:
 #replace rev2agent-part-test with your part
+  rev2agent-part-test:
+    plugin: dump
+    source: .
   rev2agent:
+    after: [rev2agent-part-test]
     organize:
       configure: snap/hooks/configure
 
