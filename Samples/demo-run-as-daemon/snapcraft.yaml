@@ -1,4 +1,4 @@
-name: rev2agent
+name: rev2agent-part-test
 version: "0.1"
 summary: Revtwo agent snap part test
 description: Revtwo agent snap part test for remote support of linux devices
@@ -10,12 +10,9 @@ confinement: devmode
 grade: devel
 
 apps:
-#  rev2agent-part-test:
-#    command: run-hello-sample
   rev2agent:
     plugs: [network-bind, home]
     command: run-rev2agent
-#    command: run-hello-sample
     daemon: simple
     
 parts:
