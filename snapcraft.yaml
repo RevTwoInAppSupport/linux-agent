@@ -15,6 +15,4 @@ parts:
     prime:
       - ./*
       - -Samples
-    organize:
-      configure: snap/hooks/configure
 
