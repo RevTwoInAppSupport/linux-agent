@@ -1,24 +1,24 @@
-Please follow these instruction to properlly install Revtwo snap example. 
+Please follow these instruction to properly install Revtwo snap example. 
 
-If you did not installed snapcraft and snap on your machine, please install it using following terminal commands:
-sudo apt install snapcraft
-sudo apt install snap  
-sudo snap install core 
+If you don't have snapcraft and snap installed, please do it running the following commands in the terminal:<br />
+sudo apt install snapcraft<br />
+sudo apt install snap<br />
+sudo snap install core<br />
 
-Revtwo currently provides four samples how LinuxAgent could be run within the snap as part: 
-1. Run and terminate with consumer (LinuxAgent will be run together with consumer application and terminate when consumer application exit)
-2. Run bot not terminate with consumer (LinuxAgent will be run together with consumer application but note terminate when consumer application exit)
-3. Run on demand (LinuxAgent will be run on demand)
-4. Run as daemon (LinuxAgent will be run as daemon)
+RevTwo currently provides four samples as a showcase of how the LinuxAgent could be run as "part" inside the snap:<br />
+1. Start and terminate with the consumer (LinuxAgent will start and terminate together with the consumer application)
+2. Start but don't terminate with consumer (LinuxAgent will start together with the consumer application but won't terminate even after the consumer application exits)
+3. Start on demand (LinuxAgent will start on demand)
+4. Start as daemon (LinuxAgent will start as daemon)
 
-After downloading Revtwo Samples directory, navigate to desired sample from Samples directory.
+After downloading Revtwo Samples directory, navigate to desired sample from Samples directory.<br />
 For example: cd Samples/demo-run-and-terminate-with-consumer/
 
-Now issue folowing terminal commands from desired sample directory. 
-sudo snapcraft 
-snap install rev2agent-part-test_0.1_amd64.snap --devmode 
+Now issue folowing terminal commands from desired sample directory.<br />
+sudo snapcraft<br />
+sudo snap install rev2agent-part-test_0.1_amd64.snap --devmode<br />
 
-Please copy userconfig.json file and appconfig.data file to /var/snap/rev2agent-part-test/common/ ($SNAP_COMMON directory).
+Please copy userconfig.json file and appconfig.data file to /var/snap/rev2agent-part-test/common/ ($SNAP_COMMON directory).<br />
 userconfig.json file must contain "device_name" and "uuid" parameters. 
 
 In case of using run-as-daemon example, please restart you machine. LinuxAgent application will be run automatically after system boots. 
