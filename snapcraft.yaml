@@ -15,4 +15,5 @@ parts:
     prime:
       - ./*
       - -Samples
+      - -AgentStandalone
 
