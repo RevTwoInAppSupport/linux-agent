@@ -19,7 +19,7 @@ In case of Agent within docker, follow these instructions to properly run Agent:
 - Attach docker to run Iotagent: docker attach iotagent 
 - Navigate to AgentStandalone folder and run agent 
 
-In case of Agent as Snap, follow do the next: 
+In case of Agent as Snap, do the next: 
 - Install Agent from public snap repository (snap install rev2agent) 
 - Copy appconfig.data to /var/snap/rev2agent/common (For example: sudo cp ~/Downloads/appconfig.data /var/snap/rev2agent/common) 
 - Generate userconfig file issuing folowing command from terminal: sudo rev2agent.generate-user-config
