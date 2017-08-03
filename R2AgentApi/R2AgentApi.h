@@ -46,4 +46,6 @@ bool R2Database(const char* db_path);
 int R2Log(logEntery_e level, const char* message);
 int R2CreateTicket(const wchar_t* tags, const wchar_t* dictionary);
 
+const char* R2GetLastError(void);
+
 #endif
