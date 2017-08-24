@@ -1,6 +1,9 @@
 #!/bin/sh
 
 echo $PWD
+if [ ! -f $SNAP_USER_COMMON/revtwo.db ]; then
+	cp $SNAP_COMMON/revtwo.db $SNAP_USER_COMMON
+fi
 if [ ! -f $PWD/appconfig.data ]; then
 	if [ ! -f $SNAP_COMMON/appconfig.data ]; then
     	echo "ERROR: appconfig.data file missing in $SNAP_COMMON."
@@ -51,13 +54,5 @@ if [ $ret -ne 0 ]; then
     echo "FATAL ERROR: Validating user config failed. Launching rev2agent aborted"
 else
 	echo "INFO: Starting rev2agent"
-	$SNAP/R2Agent $SNAP_COMMON
-
-# 	$SNAP/run-hello-sample & pid_sample=$!
-# 	$SNAP/R2Agent & pid_agent=$!
-# 	echo $pid_sample
-# 	echo $pid_agent
-# 	wait $pid_sample
-# 	kill $pid_agent
-
+	$SNAP/R2Agent $SNAP_COMMON $SNAP_USER_COMMON
 fi
