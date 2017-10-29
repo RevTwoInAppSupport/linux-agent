@@ -42,10 +42,36 @@ typedef enum{
 #define R2API_NO_ERR 	0
 /* Exported macro ------------------------------------------------------------*/
 /* Exported functions ------------------------------------------------------- */
+
+/**
+  * @brief Check status od database presence.
+           Call this function before api usage.
+  * @param  db_path: Path to database file. 
+  * @retval Status of database presence.
+  */
 bool R2Database(const char* db_path);
+    
+/**
+  * @brief Insert log into database.
+  * @param level: Log entry level. See logEntry_e enum values.
+  * @param message: Log message. UTF chars not supported.
+  * @retval Status of execution. Error code corresponding to sqlite api. 
+  */
 int R2Log(logEntery_e level, const char* message);
+    
+/**
+  * @brief Insert ticket into database. 
+  * @param tags: Array of tags separated by comma. Field is UTF supported
+  * @param dictionary: Parameter must be in valid JSON format, otherwise R2Agent will not send it to server.
+  * @retval Status of execution. Error code corresponding to sqlite api. 
+  */
 int R2CreateTicket(const wchar_t* tags, const wchar_t* dictionary);
 
+/**
+  * @brief This function gives sqlite error string in case of error during execution of R2Api function. 
+  * @param none
+  * @retval Pointer to sqlite error string. 
+  */
 const char* R2GetLastError(void);
 
 #endif
